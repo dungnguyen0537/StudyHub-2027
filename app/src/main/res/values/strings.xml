@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">StudyHub</string>
+    <string name="app_tagline">Quản lý học tập thông minh</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_subjects">Môn học</string>
+    <string name="nav_schedule">Lịch học</string>
+    <string name="nav_tasks">Công việc</string>
+    <string name="nav_profile">Hồ sơ</string>
+
+    <!-- Auth -->
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="no_account">Chưa có tài khoản?</string>
+    <string name="has_account">Đã có tài khoản?</string>
+    <string name="register_now">Đăng ký ngay</string>
+    <string name="login_now">Đăng nhập ngay</string>
+    <string name="login_google">Đăng nhập bằng Google</string>
+    <string name="or_divider">hoặc</string>
+    <string name="send_reset_email">Gửi email đặt lại mật khẩu</string>
+    <string name="back_to_login">Quay lại đăng nhập</string>
+    <string name="forgot_password_desc">Nhập email đăng ký để nhận liên kết đặt lại mật khẩu</string>
+
+    <!-- Auth Messages -->
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="register_success">Đăng ký thành công! Vui lòng xác thực email</string>
+    <string name="reset_email_sent">Đã gửi email đặt lại mật khẩu</string>
+    <string name="email_not_verified">Email chưa được xác thực. Vui lòng kiểm tra hộp thư</string>
+    <string name="password_changed">Đổi mật khẩu thành công</string>
+
+    <!-- Validation Errors -->
+    <string name="error_empty_name">Họ tên không được để trống</string>
+    <string name="error_empty_email">Email không được để trống</string>
+    <string name="error_invalid_email">Email không hợp lệ</string>
+    <string name="error_empty_password">Mật khẩu không được để trống</string>
+    <string name="error_short_password">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="error_password_mismatch">Mật khẩu xác nhận không khớp</string>
+    <string name="error_login_failed">Sai email hoặc mật khẩu</string>
+    <string name="error_network">Không có kết nối mạng</string>
+    <string name="error_unknown">Đã xảy ra lỗi. Vui lòng thử lại</string>
+    <string name="error_empty_title">Tiêu đề không được để trống</string>
+    <string name="error_empty_subject_name">Tên môn học không được để trống</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_greeting">Xin chào, %s! 👋</string>
+    <string name="dashboard_subjects">Môn học</string>
+    <string name="dashboard_today_deadlines">Deadline hôm nay</string>
+    <string name="dashboard_week_deadlines">Deadline tuần</string>
+    <string name="dashboard_active_tasks">Task đang làm</string>
+    <string name="dashboard_today_schedule">Lịch học hôm nay</string>
+    <string name="dashboard_progress">Tiến độ</string>
+    <string name="dashboard_weekly_chart">Biểu đồ tuần</string>
+
+    <!-- Subject -->
+    <string name="add_subject">Thêm môn học</string>
+    <string name="edit_subject">Sửa môn học</string>
+    <string name="subject_name">Tên môn học</string>
+    <string name="subject_code">Mã môn</string>
+    <string name="subject_teacher">Giảng viên</string>
+    <string name="subject_credits">Số tín chỉ</string>
+    <string name="subject_room">Phòng học</string>
+    <string name="subject_note">Ghi chú</string>
+    <string name="subject_color">Chọn màu</string>
+    <string name="subject_detail">Chi tiết môn học</string>
+
+    <!-- Schedule -->
+    <string name="schedule_title">Thời khóa biểu</string>
+    <string name="add_schedule">Thêm lịch học</string>
+    <string name="view_day">Ngày</string>
+    <string name="view_week">Tuần</string>
+    <string name="view_month">Tháng</string>
+
+    <!-- Deadline -->
+    <string name="deadline_title">Deadline</string>
+    <string name="add_deadline">Thêm deadline</string>
+    <string name="edit_deadline">Sửa deadline</string>
+    <string name="deadline_name">Tên deadline</string>
+    <string name="deadline_due_date">Ngày hết hạn</string>
+    <string name="deadline_due_time">Giờ hết hạn</string>
+    <string name="deadline_attachment">Đính kèm file</string>
+    <string name="deadline_description">Mô tả</string>
+    <string name="days_remaining">Còn %d ngày</string>
+    <string name="hours_remaining">Còn %d giờ</string>
+    <string name="overdue">Quá hạn</string>
+
+    <!-- Task -->
+    <string name="task_title">Công việc</string>
+    <string name="add_task">Thêm task</string>
+    <string name="task_name_hint">Nhập công việc mới…</string>
+    <string name="category_all">Tất cả</string>
+    <string name="category_study">Học tập</string>
+    <string name="category_personal">Cá nhân</string>
+    <string name="category_project">Dự án</string>
+    <string name="category_other">Khác</string>
+
+    <!-- Notes -->
+    <string name="notes_title">Ghi chú</string>
+    <string name="add_note">Thêm ghi chú</string>
+    <string name="edit_note">Sửa ghi chú</string>
+    <string name="note_title_hint">Tiêu đề</string>
+    <string name="note_content_hint">Nội dung ghi chú…</string>
+    <string name="note_type_text">Văn bản</string>
+    <string name="note_type_checklist">Checklist</string>
+    <string name="note_type_image">Hình ảnh</string>
+
+    <!-- Priority -->
+    <string name="priority">Mức ưu tiên</string>
+    <string name="priority_low">Thấp</string>
+    <string name="priority_medium">Trung bình</string>
+    <string name="priority_high">Cao</string>
+    <string name="priority_critical">Khẩn cấp</string>
+
+    <!-- Status -->
+    <string name="status_all">Tất cả</string>
+    <string name="status_pending">Chờ xử lý</string>
+    <string name="status_in_progress">Đang làm</string>
+    <string name="status_completed">Hoàn thành</string>
+    <string name="status_overdue">Quá hạn</string>
+
+    <!-- Calendar -->
+    <string name="calendar_title">Lịch</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">Thống kê</string>
+    <string name="stats_deadline_overview">Tổng quan Deadline</string>
+    <string name="stats_weekly_progress">Tiến độ tuần</string>
+    <string name="stats_subject_workload">Workload theo môn</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Hồ sơ</string>
+    <string name="edit_profile">Chỉnh sửa hồ sơ</string>
+    <string name="student_id">Mã số sinh viên</string>
+    <string name="class_name">Lớp</string>
+    <string name="department">Khoa</string>
+    <string name="major">Ngành</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="birth_date">Ngày sinh</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Cài đặt</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="old_password">Mật khẩu cũ</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="about">Giới thiệu</string>
+    <string name="app_version">Phiên bản %s</string>
+
+    <!-- Search -->
+    <string name="search_title">Tìm kiếm</string>
+    <string name="search_hint">Tìm môn học, deadline, task…</string>
+    <string name="no_results">Không tìm thấy kết quả</string>
+
+    <!-- Common Actions -->
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="close">Đóng</string>
+    <string name="retry">Thử lại</string>
+    <string name="undo">Hoàn tác</string>
+    <string name="loading">Đang tải…</string>
+
+    <!-- Dialog -->
+    <string name="confirm_delete_title">Xác nhận xóa</string>
+    <string name="confirm_delete_message">Bạn có chắc chắn muốn xóa mục này?</string>
+    <string name="confirm_logout_title">Đăng xuất</string>
+    <string name="confirm_logout_message">Bạn có chắc chắn muốn đăng xuất?</string>
+    <string name="item_deleted">Đã xóa</string>
+    <string name="saved_success">Đã lưu thành công</string>
+
+    <!-- Notification -->
+    <string name="notif_channel_schedule">Lịch học</string>
+    <string name="notif_channel_deadline">Deadline</string>
+    <string name="notif_channel_task">Công việc</string>
+    <string name="notif_channel_general">Chung</string>
+    <string name="notif_schedule_title">Sắp đến giờ học</string>
+    <string name="notif_deadline_title">Nhắc nhở deadline</string>
+    <string name="reminder">Nhắc nhở</string>
+    <string name="reminder_before">Nhắc trước</string>
+    <string name="minutes">%d phút</string>
+
+    <!-- Empty States -->
+    <string name="empty_subjects">Chưa có môn học nào.\nNhấn + để thêm môn học mới</string>
+    <string name="empty_deadlines">Chưa có deadline nào</string>
+    <string name="empty_tasks">Chưa có công việc nào</string>
+    <string name="empty_notes">Chưa có ghi chú nào</string>
+    <string name="empty_schedule">Chưa có lịch học</string>
+    <string name="empty_favorites">Chưa có mục yêu thích nào</string>
+
+    <!-- Days of Week -->
+    <string name="monday">Thứ 2</string>
+    <string name="tuesday">Thứ 3</string>
+    <string name="wednesday">Thứ 4</string>
+    <string name="thursday">Thứ 5</string>
+    <string name="friday">Thứ 6</string>
+    <string name="saturday">Thứ 7</string>
+    <string name="sunday">Chủ nhật</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_app_logo">Logo ứng dụng StudyHub</string>
+    <string name="cd_avatar">Ảnh đại diện</string>
+    <string name="cd_favorite">Yêu thích</string>
+    <string name="cd_search">Tìm kiếm</string>
+    <string name="cd_add">Thêm mới</string>
+    <string name="cd_back">Quay lại</string>
+    <string name="cd_menu">Menu</string>
+    
+    <string name="today_schedule">Lịch học hôm nay</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="empty_schedule_today">Không có lịch học nào hôm nay</string>
+</resources>

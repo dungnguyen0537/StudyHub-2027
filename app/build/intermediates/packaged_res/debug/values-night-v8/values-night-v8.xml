@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#121212</color>
+    <color name="divider">#333333</color>
+    <color name="error">#FFB4AB</color>
+    <color name="error_container">#93000A</color>
+    <color name="on_background">#E6E1E5</color>
+    <color name="on_error">#690005</color>
+    <color name="on_primary">#003258</color>
+    <color name="on_primary_container">#D1E4FF</color>
+    <color name="on_secondary">#003731</color>
+    <color name="on_secondary_container">#B2DFDB</color>
+    <color name="on_surface">#E6E1E5</color>
+    <color name="on_surface_variant">#CAC4D0</color>
+    <color name="outline">#938F99</color>
+    <color name="outline_variant">#49454F</color>
+    <color name="primary">#90CAF9</color>
+    <color name="primary_container">#1565C0</color>
+    <color name="primary_variant">#42A5F5</color>
+    <color name="secondary">#80CBC4</color>
+    <color name="secondary_container">#00695C</color>
+    <color name="splash_background">#0D47A1</color>
+    <color name="surface">#1C1B1F</color>
+    <color name="surface_variant">#121212</color>
+    <color name="tertiary">#CE93D8</color>
+    <color name="tertiary_container">#6A1B9A</color>
+    <style name="Theme.StudyHub" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+        <item name="colorTertiary">@color/tertiary</item>
+        <item name="colorTertiaryContainer">@color/tertiary_container</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorErrorContainer">@color/error_container</item>
+        <item name="colorOnError">@color/on_error</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline_variant</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/surface</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+    </style>
+    <style name="Theme.StudyHub.Splash" parent="Theme.StudyHub">
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+    </style>
+</resources>

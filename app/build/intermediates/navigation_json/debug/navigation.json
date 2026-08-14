@@ -1,0 +1,14 @@
+[
+  {
+    "name": "nav_auth",
+    "navigationXmlIds": [
+      "nav_main"
+    ],
+    "deepLinks": []
+  },
+  {
+    "name": "nav_main",
+    "navigationXmlIds": [],
+    "deepLinks": []
+  }
+]

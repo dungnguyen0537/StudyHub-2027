@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_register.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_add_task.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_add_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_subject_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_subject_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_add_subject.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_add_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_edit_profile.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_deadline_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_deadline_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_add_note.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_add_note.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_note_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_note_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_task_list.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_task_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_day_schedule.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_day_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_task_container.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_task_container.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.studyhub.app-mergeDebugResources-4:/layout/item_schedule.xml",
+        "source": "com.studyhub.app-main-7:/layout/item_schedule.xml"
+    },
+    {
+        "merged": "com.studyhub.app-mergeDebugResources-4:/layout/item_subject.xml",
+        "source": "com.studyhub.app-main-7:/layout/item_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_add_schedule.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_add_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_schedule.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_task.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_schedule.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_schedule.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_deadline.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_deadline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_add_deadline.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_add_deadline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_subject.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_subject.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\fragment_forgot_password.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\fragment_forgot_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-mergeDebugResources-4:\\layout\\item_note.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.10\\com.studyhub.app-main-7:\\layout\\item_note.xml"
+    }
+]
