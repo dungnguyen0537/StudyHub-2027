@@ -65,6 +65,7 @@ public class ScheduleRepository {
                     scheduleDao.insert(schedule);
                     SyncManager.enqueueSyncWork(application);
                 }
+                scheduleAlarm(schedule);
             } catch (Exception e) {
                 Log.e("ScheduleRepo", "Failed to insert locally!", e);
                 new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
@@ -86,6 +87,7 @@ public class ScheduleRepository {
                 scheduleDao.update(schedule);
                 SyncManager.enqueueSyncWork(application);
             }
+            scheduleAlarm(schedule);
         });
     }
 
@@ -99,7 +101,29 @@ public class ScheduleRepository {
                 scheduleDao.update(schedule);
                 SyncManager.enqueueSyncWork(application);
             }
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, schedule.getId().hashCode());
         });
+    }
+
+    private void scheduleAlarm(ScheduleEntity schedule) {
+        if (schedule.isReminderEnabled()) {
+            long triggerTime = com.studyhub.utils.DateUtils.getNextOccurrence(schedule.getDayOfWeek(), schedule.getStartTime());
+            if (triggerTime != -1) {
+                // Subtract reminderMinutesBefore
+                triggerTime -= (schedule.getReminderMinutesBefore() * 60 * 1000L);
+                com.studyhub.utils.AlarmHelper.setReminder(
+                        application,
+                        schedule.getId().hashCode(),
+                        triggerTime,
+                        "Đến giờ học!",
+                        "Môn học sẽ bắt đầu lúc " + schedule.getStartTime() + " tại " + schedule.getRoom(),
+                        "schedule",
+                        schedule.getId()
+                );
+            }
+        } else {
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, schedule.getId().hashCode());
+        }
     }
 
     private void saveScheduleToCloud(ScheduleEntity entity) {

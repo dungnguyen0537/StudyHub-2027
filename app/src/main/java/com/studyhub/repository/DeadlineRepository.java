@@ -64,6 +64,7 @@ public class DeadlineRepository {
                 deadlineDao.insert(deadline);
                 SyncManager.enqueueSyncWork(application);
             }
+            scheduleAlarm(deadline);
         });
     }
 
@@ -80,6 +81,7 @@ public class DeadlineRepository {
                 deadlineDao.update(deadline);
                 SyncManager.enqueueSyncWork(application);
             }
+            scheduleAlarm(deadline);
         });
     }
 
@@ -93,7 +95,26 @@ public class DeadlineRepository {
                 deadlineDao.update(deadline);
                 SyncManager.enqueueSyncWork(application);
             }
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, deadline.getId().hashCode());
         });
+    }
+
+    private void scheduleAlarm(DeadlineEntity deadline) {
+        // Schedule a reminder 1 day before the deadline
+        long triggerTime = deadline.getDueDate() - (24 * 60 * 60 * 1000L);
+        if (triggerTime > System.currentTimeMillis() && !deadline.getStatus().equals("COMPLETED")) {
+            com.studyhub.utils.AlarmHelper.setReminder(
+                    application,
+                    deadline.getId().hashCode(),
+                    triggerTime,
+                    "Sắp đến Deadline!",
+                    "Hạn chót cho " + deadline.getTitle() + " là vào ngày mai.",
+                    "deadline",
+                    deadline.getId()
+            );
+        } else {
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, deadline.getId().hashCode());
+        }
     }
 
     private void saveDeadlineToCloud(DeadlineEntity entity) {

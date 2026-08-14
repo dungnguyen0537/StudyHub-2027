@@ -63,4 +63,7 @@ public interface DeadlineDao {
 
     @Query("SELECT * FROM deadlines WHERE userId = :userId AND dueDate >= :now AND status != 'COMPLETED' AND syncStatus != 3 ORDER BY dueDate ASC")
     LiveData<List<DeadlineEntity>> getUpcoming(String userId, long now);
+
+    @Query("SELECT * FROM deadlines WHERE userId = :userId AND dueDate >= :now AND status != 'COMPLETED' AND syncStatus != 3 ORDER BY dueDate ASC")
+    List<DeadlineEntity> getUpcomingSync(String userId, long now);
 }

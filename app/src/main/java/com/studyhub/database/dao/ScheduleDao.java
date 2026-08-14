@@ -48,4 +48,7 @@ public interface ScheduleDao {
 
     @Query("SELECT * FROM schedules WHERE id = :id")
     ScheduleEntity getByIdSync(String id);
+
+    @Query("SELECT * FROM schedules WHERE dayOfWeek = :dayOfWeek AND syncStatus != 3 ORDER BY startTime ASC")
+    List<ScheduleEntity> getByDayOfWeekSync(int dayOfWeek);
 }
