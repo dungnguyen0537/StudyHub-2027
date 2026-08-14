@@ -7,7 +7,7 @@ Dưới đây là chi tiết các phân hệ (modules) và chức năng chính c
 
 ## 1. Xác thực và Tài khoản (Authentication)
 Quản lý luồng đăng nhập và bảo mật người dùng thông qua Firebase Authentication.
-- **Đăng nhập / Đăng ký:** Hỗ trợ tạo tài khoản mới bằng Email/Password.
+- **Đăng nhập / Đăng ký:** Hỗ trợ tạo tài khoản mới bằng Email/Password hoặc **tích hợp xác thực nhanh bằng tài khoản Google (Google Sign-In)**.
 - **Quên mật khẩu:** Gửi email khôi phục mật khẩu.
 - **Quản lý phiên đăng nhập:** Tự động giữ phiên đăng nhập (Auto-login) nếu người dùng đã từng đăng nhập trước đó. Màn hình Splash Screen sẽ làm nhiệm vụ điều hướng.
 
