@@ -18,11 +18,38 @@ import com.studyhub.databinding.FragmentRegisterBinding;
 import com.studyhub.repository.AuthRepository;
 import com.studyhub.viewmodel.AuthViewModel;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.GoogleAuthProvider;
+
 public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
     private AuthViewModel authViewModel;
     private NavController navController;
+    private GoogleSignInClient mGoogleSignInClient;
+
+    private final ActivityResultLauncher<android.content.Intent> googleSignInLauncher = 
+        registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == android.app.Activity.RESULT_OK) {
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                try {
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    if (account != null) {
+                        com.google.firebase.auth.AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+                        authViewModel.loginWithGoogle(credential);
+                    }
+                } catch (ApiException e) {
+                    Toast.makeText(requireContext(), "Đăng nhập Google thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +78,16 @@ public class RegisterFragment extends Fragment {
         });
 
         binding.tvLogin.setOnClickListener(v -> navController.navigateUp());
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
+
+        binding.btnGoogleLogin.setOnClickListener(v -> {
+            googleSignInLauncher.launch(mGoogleSignInClient.getSignInIntent());
+        });
     }
 
     private void observeViewModel() {
@@ -81,10 +118,17 @@ public class RegisterFragment extends Fragment {
                     break;
                 case SUCCESS:
                     setLoading(false);
-                    Toast.makeText(requireContext(), R.string.register_success, Toast.LENGTH_LONG).show();
-                    authViewModel.logout(); // Ensure they have to log in manually after verification
+                    if (authViewModel.isEmailVerified()) {
+                        // Logged in with Google or auto-verified
+                        Toast.makeText(requireContext(), R.string.login_success, Toast.LENGTH_SHORT).show();
+                        navController.navigate(R.id.action_registerFragment_to_nav_main);
+                    } else {
+                        // Standard Email/Password registration
+                        Toast.makeText(requireContext(), R.string.register_success, Toast.LENGTH_LONG).show();
+                        authViewModel.logout(); // Ensure they have to log in manually after verification
+                        navController.navigateUp(); // Go back to login
+                    }
                     authViewModel.resetState();
-                    navController.navigateUp(); // Go back to login
                     break;
                 case ERROR:
                     setLoading(false);
@@ -106,6 +150,7 @@ public class RegisterFragment extends Fragment {
     private void setLoading(boolean isLoading) {
         binding.progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         binding.btnRegister.setEnabled(!isLoading);
+        binding.btnGoogleLogin.setEnabled(!isLoading);
         binding.etFullName.setEnabled(!isLoading);
         binding.etEmail.setEnabled(!isLoading);
         binding.etPassword.setEnabled(!isLoading);
