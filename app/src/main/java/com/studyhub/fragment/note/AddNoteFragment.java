@@ -80,7 +80,7 @@ public class AddNoteFragment extends Fragment {
     }
 
     private void setupToolbar() {
-        binding.toolbar.setTitle(isEditMode ? "Edit Note" : "Add Note");
+        binding.toolbar.setTitle(isEditMode ? "Chỉnh sửa Ghi chú" : "Thêm Ghi chú");
         binding.toolbar.setNavigationOnClickListener(v -> {
             if (navController != null) navController.navigateUp();
             else requireActivity().getOnBackPressedDispatcher().onBackPressed();
@@ -101,7 +101,7 @@ public class AddNoteFragment extends Fragment {
             subjectNames.clear();
             
             // Add a default "No Subject" option
-            subjectNames.add("No Subject");
+            subjectNames.add("Không chọn môn");
             
             if (subjects != null) {
                 subjectList.addAll(subjects);
@@ -165,7 +165,7 @@ public class AddNoteFragment extends Fragment {
         }
 
         if (title.isEmpty()) {
-            Toast.makeText(requireContext(), "Title cannot be empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Vui lòng nhập tiêu đề", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -186,7 +186,7 @@ public class AddNoteFragment extends Fragment {
             noteViewModel.insert(newNote);
         }
 
-        Toast.makeText(requireContext(), "Note saved successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Đã lưu Ghi chú", Toast.LENGTH_SHORT).show();
         if (navController != null) {
             navController.navigateUp();
         } else {

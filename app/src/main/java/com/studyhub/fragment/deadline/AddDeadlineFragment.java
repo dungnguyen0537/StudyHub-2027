@@ -45,8 +45,8 @@ public class AddDeadlineFragment extends Fragment {
 
     private Calendar dueCalendar = Calendar.getInstance();
 
-    private final String[] priorities = {"Low", "Medium", "High"};
-    private final String[] statuses = {"Pending", "Completed", "Overdue"};
+    private final String[] priorities = {"Thấp", "Trung bình", "Cao"};
+    private final String[] statuses = {"Đang chờ", "Hoàn thành", "Quá hạn"};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,11 +74,11 @@ public class AddDeadlineFragment extends Fragment {
         setupClickListeners();
 
         if (isEditMode && deadlineId != null) {
-            binding.toolbar.setTitle("Edit Deadline");
+            binding.toolbar.setTitle("Chỉnh sửa Deadline");
             binding.btnDelete.setVisibility(View.VISIBLE);
             loadDeadlineData();
         } else {
-            binding.toolbar.setTitle("Add Deadline");
+            binding.toolbar.setTitle("Thêm Deadline");
             binding.btnDelete.setVisibility(View.GONE);
             updateDateTimeText();
         }
@@ -208,13 +208,13 @@ public class AddDeadlineFragment extends Fragment {
         String description = binding.etDescription.getText() != null ? binding.etDescription.getText().toString().trim() : "";
 
         if (TextUtils.isEmpty(title)) {
-            binding.tilTitle.setError("Title is required");
+            binding.tilTitle.setError("Vui lòng nhập tiêu đề");
             return;
         }
         binding.tilTitle.setError(null);
 
         if (selectedSubjectId == null) {
-            binding.tilSubject.setError("Please select a subject");
+            binding.tilSubject.setError("Vui lòng chọn môn học");
             return;
         }
         binding.tilSubject.setError(null);
@@ -242,7 +242,7 @@ public class AddDeadlineFragment extends Fragment {
             currentDeadline.setDueDate(dueCalendar.getTimeInMillis());
 
             viewModel.update(currentDeadline);
-            Toast.makeText(requireContext(), "Deadline updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Đã cập nhật Deadline", Toast.LENGTH_SHORT).show();
         } else {
             DeadlineEntity newDeadline = new DeadlineEntity();
             newDeadline.setTitle(title);
@@ -253,7 +253,7 @@ public class AddDeadlineFragment extends Fragment {
             newDeadline.setDueDate(dueCalendar.getTimeInMillis());
 
             viewModel.insert(newDeadline);
-            Toast.makeText(requireContext(), "Deadline created", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Đã tạo Deadline", Toast.LENGTH_SHORT).show();
         }
 
         navController.navigateUp();
