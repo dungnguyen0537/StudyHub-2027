@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.studyhub.activity.SplashActivity;
+import com.studyhub.R;
 import com.studyhub.constant.AppConstants;
 import com.studyhub.databinding.FragmentProfileBinding;
 import com.studyhub.utils.PreferenceManager;
