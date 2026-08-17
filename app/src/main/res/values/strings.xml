@@ -55,7 +55,7 @@
     <string name="dashboard_subjects">Môn học</string>
     <string name="dashboard_today_deadlines">Deadline hôm nay</string>
     <string name="dashboard_week_deadlines">Deadline tuần</string>
-    <string name="dashboard_active_tasks">Task đang làm</string>
+    <string name="dashboard_active_tasks">Công việc đang làm</string>
     <string name="dashboard_today_schedule">Lịch học hôm nay</string>
     <string name="dashboard_progress">Tiến độ</string>
     <string name="dashboard_weekly_chart">Biểu đồ tuần</string>
@@ -94,7 +94,7 @@
 
     <!-- Task -->
     <string name="task_title">Công việc</string>
-    <string name="add_task">Thêm task</string>
+    <string name="add_task">Thêm công việc</string>
     <string name="task_name_hint">Nhập công việc mới…</string>
     <string name="category_all">Tất cả</string>
     <string name="category_study">Học tập</string>
@@ -156,7 +156,7 @@
 
     <!-- Search -->
     <string name="search_title">Tìm kiếm</string>
-    <string name="search_hint">Tìm môn học, deadline, task…</string>
+    <string name="search_hint">Tìm môn học, deadline, công việc…</string>
     <string name="no_results">Không tìm thấy kết quả</string>
 
     <!-- Common Actions -->
