@@ -68,6 +68,7 @@ public class TaskRepository {
                 taskDao.insert(task);
                 SyncManager.enqueueSyncWork(application);
             }
+            scheduleAlarm(task);
         });
     }
 
@@ -84,6 +85,7 @@ public class TaskRepository {
                 taskDao.update(task);
                 SyncManager.enqueueSyncWork(application);
             }
+            scheduleAlarm(task);
         });
     }
 
@@ -97,7 +99,29 @@ public class TaskRepository {
                 taskDao.update(task);
                 SyncManager.enqueueSyncWork(application);
             }
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, task.getId().hashCode());
         });
+    }
+
+    private void scheduleAlarm(TaskEntity task) {
+        if (task.isNotificationEnabled() && task.getDeadline() > 0) {
+            long triggerTime = task.getDeadline();
+            if (triggerTime > System.currentTimeMillis() && !task.isCompleted()) {
+                com.studyhub.utils.AlarmHelper.setReminder(
+                        application,
+                        task.getId().hashCode(),
+                        triggerTime,
+                        "Đến hạn Công việc!",
+                        "Đã đến hạn chót cho: " + task.getTitle(),
+                        "task",
+                        task.getId()
+                );
+            } else {
+                com.studyhub.utils.AlarmHelper.cancelReminder(application, task.getId().hashCode());
+            }
+        } else {
+            com.studyhub.utils.AlarmHelper.cancelReminder(application, task.getId().hashCode());
+        }
     }
 
     private void saveTaskToCloud(TaskEntity entity) {

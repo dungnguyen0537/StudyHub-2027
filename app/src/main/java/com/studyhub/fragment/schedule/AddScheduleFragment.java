@@ -276,6 +276,8 @@ public class AddScheduleFragment extends Fragment {
                 currentSchedule.setStartTime(ds.startTime);
                 currentSchedule.setEndTime(ds.endTime);
                 currentSchedule.setRoom(ds.etRoom.getText() != null ? ds.etRoom.getText().toString().trim() : "");
+                currentSchedule.setReminderEnabled(true);
+                currentSchedule.setReminderMinutesBefore(30);
                 currentSchedule.setUpdatedAt(System.currentTimeMillis());
                 scheduleViewModel.update(currentSchedule);
                 hasAnySchedule = true;
@@ -300,6 +302,8 @@ public class AddScheduleFragment extends Fragment {
                     schedule.setStartTime(ds.startTime);
                     schedule.setEndTime(ds.endTime);
                     schedule.setRoom(ds.etRoom.getText() != null ? ds.etRoom.getText().toString().trim() : "");
+                    schedule.setReminderEnabled(true);
+                    schedule.setReminderMinutesBefore(30);
                     schedule.setCreatedAt(System.currentTimeMillis());
                     schedule.setUpdatedAt(System.currentTimeMillis());
                     schedule.setSyncStatus(0);

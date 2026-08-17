@@ -188,6 +188,7 @@ public class AddTaskFragment extends Fragment {
             currentTask.setPriority(priority);
             currentTask.setDeadline(selectedDeadline);
             currentTask.setCompleted(isCompleted);
+            currentTask.setNotificationEnabled(true);
             taskViewModel.update(currentTask);
             Toast.makeText(getContext(), "Đã cập nhật công việc", Toast.LENGTH_SHORT).show();
         } else {
@@ -197,6 +198,7 @@ public class AddTaskFragment extends Fragment {
             newTask.setPriority(priority);
             newTask.setDeadline(selectedDeadline);
             newTask.setCompleted(isCompleted);
+            newTask.setNotificationEnabled(true);
             taskViewModel.insert(newTask);
             Toast.makeText(getContext(), "Đã thêm công việc thành công", Toast.LENGTH_SHORT).show();
         }

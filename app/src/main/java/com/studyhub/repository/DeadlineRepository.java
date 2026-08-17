@@ -103,15 +103,15 @@ public class DeadlineRepository {
     }
 
     private void scheduleAlarm(DeadlineEntity deadline) {
-        // Schedule a reminder 1 day before the deadline
-        long triggerTime = deadline.getDueDate() - (24 * 60 * 60 * 1000L);
+        // Schedule a reminder EXACTLY at the deadline time
+        long triggerTime = deadline.getDueDate();
         if (triggerTime > System.currentTimeMillis() && !deadline.getStatus().equals("COMPLETED")) {
             com.studyhub.utils.AlarmHelper.setReminder(
                     application,
                     deadline.getId().hashCode(),
                     triggerTime,
-                    "Sắp đến Deadline!",
-                    "Hạn chót cho " + deadline.getTitle() + " là vào ngày mai.",
+                    "Đến hạn Deadline!",
+                    "Đã đến hạn chót cho: " + deadline.getTitle(),
                     "deadline",
                     deadline.getId()
             );
