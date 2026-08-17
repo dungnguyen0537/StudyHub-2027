@@ -72,6 +72,7 @@ public class ScheduleRepository {
                     android.widget.Toast.makeText(application, "Lỗi DB: " + e.getMessage(), android.widget.Toast.LENGTH_LONG).show();
                 });
             }
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 
@@ -88,6 +89,7 @@ public class ScheduleRepository {
                 SyncManager.enqueueSyncWork(application);
             }
             scheduleAlarm(schedule);
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 
@@ -102,6 +104,7 @@ public class ScheduleRepository {
                 SyncManager.enqueueSyncWork(application);
             }
             com.studyhub.utils.AlarmHelper.cancelReminder(application, schedule.getId().hashCode());
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 

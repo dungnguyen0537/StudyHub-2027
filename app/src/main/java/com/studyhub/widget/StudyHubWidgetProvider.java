@@ -63,9 +63,21 @@ public class StudyHubWidgetProvider extends AppWidgetProvider {
         super.onReceive(context, intent);
         if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(intent.getAction())) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            // Get all ids
-            // Note: In a real app, we should probably store widget IDs or use ComponentName
-            // but for simplicity we rely on the system broadcast
+            android.content.ComponentName thisWidget = new android.content.ComponentName(context, StudyHubWidgetProvider.class);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+            
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lvWidgetSchedules);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lvWidgetDeadlines);
+            
+            for (int appWidgetId : appWidgetIds) {
+                updateAppWidget(context, appWidgetManager, appWidgetId);
+            }
         }
+    }
+    
+    public static void sendUpdateBroadcast(Context context) {
+        Intent intent = new Intent(context, StudyHubWidgetProvider.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        context.sendBroadcast(intent);
     }
 }

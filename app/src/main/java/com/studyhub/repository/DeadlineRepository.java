@@ -65,6 +65,7 @@ public class DeadlineRepository {
                 SyncManager.enqueueSyncWork(application);
             }
             scheduleAlarm(deadline);
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 
@@ -82,6 +83,7 @@ public class DeadlineRepository {
                 SyncManager.enqueueSyncWork(application);
             }
             scheduleAlarm(deadline);
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 
@@ -96,6 +98,7 @@ public class DeadlineRepository {
                 SyncManager.enqueueSyncWork(application);
             }
             com.studyhub.utils.AlarmHelper.cancelReminder(application, deadline.getId().hashCode());
+            com.studyhub.widget.StudyHubWidgetProvider.sendUpdateBroadcast(application);
         });
     }
 
