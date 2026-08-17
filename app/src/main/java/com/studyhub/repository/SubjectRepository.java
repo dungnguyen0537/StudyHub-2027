@@ -24,6 +24,9 @@ import java.util.UUID;
 public class SubjectRepository {
 
     private final SubjectDao subjectDao;
+    private final com.studyhub.database.dao.ScheduleDao scheduleDao;
+    private final com.studyhub.database.dao.DeadlineDao deadlineDao;
+    private final com.studyhub.database.dao.NoteDao noteDao;
     private final FirebaseFirestore firestore;
     private final Application application;
 
@@ -31,6 +34,9 @@ public class SubjectRepository {
         this.application = application;
         StudyHubDatabase db = StudyHubDatabase.getInstance(application);
         this.subjectDao = db.subjectDao();
+        this.scheduleDao = db.scheduleDao();
+        this.deadlineDao = db.deadlineDao();
+        this.noteDao = db.noteDao();
         this.firestore = FirebaseFirestore.getInstance();
     }
 
@@ -87,13 +93,42 @@ public class SubjectRepository {
         AppExecutors.getInstance().diskIO().execute(() -> {
             if (NetworkUtils.isNetworkAvailable(application)) {
                 subjectDao.deleteById(subject.getId());
+                scheduleDao.deleteBySubjectId(subject.getId());
+                deadlineDao.deleteBySubjectId(subject.getId());
+                noteDao.deleteBySubjectId(subject.getId());
+                
                 deleteSubjectFromCloud(subject.getId());
+                deleteRelatedDataFromCloud(subject.getId());
             } else {
                 subject.setSyncStatus(SyncStatus.PENDING_DELETE);
                 subjectDao.update(subject);
+                
+                scheduleDao.markPendingDeleteBySubjectId(subject.getId());
+                deadlineDao.markPendingDeleteBySubjectId(subject.getId());
+                noteDao.markPendingDeleteBySubjectId(subject.getId());
+                
                 SyncManager.enqueueSyncWork(application);
             }
         });
+    }
+
+    private void deleteRelatedDataFromCloud(String subjectId) {
+        String[] collections = {
+            FirestoreConstants.COLLECTION_SCHEDULES,
+            FirestoreConstants.COLLECTION_DEADLINES,
+            FirestoreConstants.COLLECTION_NOTES
+        };
+        for (String collection : collections) {
+            firestore.collection(collection)
+                    .whereEqualTo("subjectId", subjectId)
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        for (com.google.firebase.firestore.DocumentSnapshot doc : queryDocumentSnapshots) {
+                            doc.getReference().delete();
+                        }
+                    })
+                    .addOnFailureListener(e -> Log.e("SubjectRepo", "Failed to query " + collection + " for deletion", e));
+        }
     }
 
     private void saveSubjectToCloud(SubjectEntity entity) {

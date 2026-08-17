@@ -25,6 +25,12 @@ public interface NoteDao {
     @Query("DELETE FROM notes WHERE id = :id")
     void deleteById(String id);
 
+    @Query("DELETE FROM notes WHERE subjectId = :subjectId")
+    void deleteBySubjectId(String subjectId);
+
+    @Query("UPDATE notes SET syncStatus = 3 WHERE subjectId = :subjectId")
+    void markPendingDeleteBySubjectId(String subjectId);
+
     @Query("SELECT * FROM notes WHERE userId = :userId AND syncStatus != 3 ORDER BY updatedAt DESC")
     LiveData<List<NoteEntity>> getAllByUser(String userId);
 

@@ -28,6 +28,9 @@ public interface ScheduleDao {
     @Query("DELETE FROM schedules WHERE subjectId = :subjectId")
     void deleteBySubjectId(String subjectId);
 
+    @Query("UPDATE schedules SET syncStatus = 3 WHERE subjectId = :subjectId")
+    void markPendingDeleteBySubjectId(String subjectId);
+
     @Query("SELECT * FROM schedules WHERE userId = :userId AND syncStatus != 3")
     LiveData<List<ScheduleEntity>> getAllByUser(String userId);
 

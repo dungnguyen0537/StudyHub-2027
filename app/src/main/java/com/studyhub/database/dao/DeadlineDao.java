@@ -25,6 +25,12 @@ public interface DeadlineDao {
     @Query("DELETE FROM deadlines WHERE id = :id")
     void deleteById(String id);
 
+    @Query("DELETE FROM deadlines WHERE subjectId = :subjectId")
+    void deleteBySubjectId(String subjectId);
+
+    @Query("UPDATE deadlines SET syncStatus = 3 WHERE subjectId = :subjectId")
+    void markPendingDeleteBySubjectId(String subjectId);
+
     @Query("SELECT * FROM deadlines WHERE userId = :userId AND syncStatus != 3 ORDER BY dueDate ASC")
     LiveData<List<DeadlineEntity>> getAllByUser(String userId);
 
