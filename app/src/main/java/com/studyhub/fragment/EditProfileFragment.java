@@ -133,13 +133,21 @@ public class EditProfileFragment extends Fragment {
         StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("avatars/" + fileName);
         
         storageRef.putFile(selectedImageUri)
-                .addOnSuccessListener(taskSnapshot -> storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                    updateUserDatabase(fullName, studentId, phone, address, uri.toString());
-                }))
-                .addOnFailureListener(e -> {
-                    Toast.makeText(requireContext(), "Lỗi tải ảnh lên: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    btnSave.setEnabled(true);
-                    btnSave.setText("Lưu thay đổi");
+                .continueWithTask(task -> {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+                    return storageRef.getDownloadUrl();
+                })
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        updateUserDatabase(fullName, studentId, phone, address, downloadUri.toString());
+                    } else {
+                        Toast.makeText(requireContext(), "Lỗi tải ảnh lên: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        btnSave.setEnabled(true);
+                        btnSave.setText("Lưu thay đổi");
+                    }
                 });
     }
 
