@@ -6,7 +6,7 @@
     android:padding="8dp"
     android:background="#FAFAFA">
 
-    <View
+    <FrameLayout
         android:id="@+id/vColor"
         android:layout_width="4dp"
         android:layout_height="match_parent"

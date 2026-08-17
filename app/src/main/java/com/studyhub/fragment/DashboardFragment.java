@@ -48,6 +48,33 @@ public class DashboardFragment extends Fragment {
         });
         binding.rvTodaySchedule.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvTodaySchedule.setAdapter(scheduleAdapter);
+
+        androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback swipeCallback = new androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback(0, androidx.recyclerview.widget.ItemTouchHelper.LEFT | androidx.recyclerview.widget.ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull androidx.recyclerview.widget.RecyclerView recyclerView, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getBindingAdapterPosition();
+                com.studyhub.database.entity.ScheduleEntity scheduleToDelete = scheduleAdapter.getCurrentList().get(position);
+                
+                new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("Xóa lịch học")
+                        .setMessage("Bạn có chắc chắn muốn xóa lịch học này?")
+                        .setPositiveButton("Xóa", (dialog, which) -> {
+                            dashboardViewModel.deleteSchedule(scheduleToDelete);
+                        })
+                        .setNegativeButton("Hủy", (dialog, which) -> {
+                            scheduleAdapter.notifyItemChanged(position);
+                        })
+                        .setOnCancelListener(dialog -> scheduleAdapter.notifyItemChanged(position))
+                        .show();
+            }
+        };
+
+        new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvTodaySchedule);
     }
 
     private void setupClickListeners() {

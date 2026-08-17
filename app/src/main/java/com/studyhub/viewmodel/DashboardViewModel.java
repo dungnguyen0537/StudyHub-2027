@@ -40,4 +40,8 @@ public class DashboardViewModel extends AndroidViewModel {
     public LiveData<List<ScheduleEntity>> getTodaysSchedules() {
         return todaysSchedules;
     }
+
+    public void deleteSchedule(ScheduleEntity schedule) {
+        scheduleRepository.deleteSchedule(schedule);
+    }
 }

@@ -97,7 +97,14 @@ class StudyHubRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
                 
                 String title = subject != null ? subject.getName() : "Không xác định";
                 String time = schedule.getStartTime() + " - " + schedule.getEndTime() + " (" + schedule.getRoom() + ")";
-                int color = Color.parseColor(subject != null ? subject.getColorHex() : "#3F51B5");
+                int color = Color.parseColor("#3F51B5");
+                if (subject != null && subject.getColorHex() != null) {
+                    try {
+                        color = Color.parseColor(subject.getColorHex());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 
                 views.setTextViewText(R.id.tvItemTitle, title);
                 views.setTextViewText(R.id.tvItemTime, time);
@@ -114,7 +121,14 @@ class StudyHubRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
                 
                 String title = deadline.getTitle();
                 String time = DateUtils.formatDateTime(deadline.getDueDate());
-                int color = Color.parseColor(subject != null ? subject.getColorHex() : "#F44336");
+                int color = Color.parseColor("#F44336");
+                if (subject != null && subject.getColorHex() != null) {
+                    try {
+                        color = Color.parseColor(subject.getColorHex());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 
                 views.setTextViewText(R.id.tvItemTitle, title);
                 views.setTextViewText(R.id.tvItemTime, time);
