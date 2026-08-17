@@ -93,7 +93,13 @@ public class EditProfileFragment extends Fragment {
                 etAddress.setText(user.getAddress());
                 
                 if (user.getAvatarUrl() != null && !user.getAvatarUrl().isEmpty()) {
-                    Glide.with(this).load(user.getAvatarUrl()).into(ivAvatar);
+                    Glide.with(this)
+                        .load(user.getAvatarUrl())
+                        .placeholder(R.drawable.ic_default_avatar)
+                        .error(R.drawable.ic_default_avatar)
+                        .into(ivAvatar);
+                } else {
+                    ivAvatar.setImageResource(R.drawable.ic_default_avatar);
                 }
             }
         });

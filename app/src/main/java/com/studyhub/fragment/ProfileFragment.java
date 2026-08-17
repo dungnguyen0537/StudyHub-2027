@@ -92,7 +92,13 @@ public class ProfileFragment extends Fragment {
                 binding.tvAddress.setText(user.getAddress() != null && !user.getAddress().isEmpty() ? user.getAddress() : "Chưa cập nhật địa chỉ");
                 
                 if (user.getAvatarUrl() != null && !user.getAvatarUrl().isEmpty()) {
-                    com.bumptech.glide.Glide.with(this).load(user.getAvatarUrl()).into(binding.ivAvatar);
+                    com.bumptech.glide.Glide.with(this)
+                        .load(user.getAvatarUrl())
+                        .placeholder(R.drawable.ic_default_avatar)
+                        .error(R.drawable.ic_default_avatar)
+                        .into(binding.ivAvatar);
+                } else {
+                    binding.ivAvatar.setImageResource(R.drawable.ic_default_avatar);
                 }
             }
         });
