@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:baselineAligned="false"
-    android:background="@drawable/widget_bg">
+    android:background="@drawable/widget_bg"
+    android:padding="12dp">
 
     <!-- Lịch học hôm nay -->
     <LinearLayout
@@ -12,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_marginEnd="6dp">
 
         <TextView
             android:id="@+id/tvWidgetScheduleTitle"
@@ -20,11 +21,13 @@
             android:layout_height="wrap_content"
             android:text="Lịch học"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
-            android:padding="8dp"
-            android:background="#3F51B5"
-            android:gravity="center" />
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/bg_widget_header_blue"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
 
         <ListView
             android:id="@+id/lvWidgetSchedules"
@@ -32,8 +35,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:divider="@android:color/transparent"
-            android:dividerHeight="4dp"
-            android:layout_marginTop="4dp" />
+            android:dividerHeight="8dp" />
 
         <TextView
             android:id="@+id/tvWidgetScheduleEmpty"
@@ -48,20 +50,13 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="#DDDDDD"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
-
     <!-- Deadline sắp tới -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_marginStart="6dp">
 
         <TextView
             android:id="@+id/tvWidgetDeadlineTitle"
@@ -69,11 +64,13 @@
             android:layout_height="wrap_content"
             android:text="Deadline"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
-            android:padding="8dp"
-            android:background="#F44336"
-            android:gravity="center" />
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/bg_widget_header_red"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
 
         <ListView
             android:id="@+id/lvWidgetDeadlines"
@@ -81,8 +78,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:divider="@android:color/transparent"
-            android:dividerHeight="4dp"
-            android:layout_marginTop="4dp" />
+            android:dividerHeight="8dp" />
 
         <TextView
             android:id="@+id/tvWidgetDeadlineEmpty"

@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
-    android:background="#FAFAFA">
+    android:padding="10dp"
+    android:background="@drawable/bg_widget_item">
 
     <FrameLayout
         android:id="@+id/vColor"
         android:layout_width="4dp"
         android:layout_height="match_parent"
-        android:background="#3F51B5"
-        android:layout_marginEnd="8dp" />
+        android:background="@drawable/bg_widget_item_color"
+        android:layout_marginEnd="10dp" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -24,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tiêu đề"
-            android:textColor="#333333"
-            android:textSize="14sp"
+            android:textColor="#1F2937"
+            android:textSize="13sp"
             android:textStyle="bold" />
 
         <TextView
@@ -33,9 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thời gian"
-            android:textColor="#666666"
-            android:textSize="12sp"
-            android:layout_marginTop="2dp" />
+            android:textColor="#6B7280"
+            android:textSize="11sp"
+            android:layout_marginTop="3dp" />
 
     </LinearLayout>
 </LinearLayout>
