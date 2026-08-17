@@ -48,14 +48,12 @@ public class EditProfileFragment extends Fragment {
     private Uri selectedImageUri = null;
     private UserEntity currentUser = null;
 
-    private final ActivityResultLauncher<Intent> imagePickerLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    selectedImageUri = result.getData().getData();
-                    if (selectedImageUri != null) {
-                        Glide.with(this).load(selectedImageUri).into(ivAvatar);
-                    }
+    private final ActivityResultLauncher<String> imagePickerLauncher = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            uri -> {
+                if (uri != null) {
+                    selectedImageUri = uri;
+                    Glide.with(this).load(selectedImageUri).into(ivAvatar);
                 }
             }
     );
@@ -104,9 +102,7 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void openImagePicker() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        imagePickerLauncher.launch(intent);
+        imagePickerLauncher.launch("image/*");
     }
 
     private void saveProfile() {
