@@ -84,11 +84,16 @@ public class ProfileFragment extends Fragment {
     private void observeViewModel() {
         profileViewModel.getUserProfile().observe(getViewLifecycleOwner(), user -> {
             if (user != null) {
-                binding.tvFullName.setText(user.getFullName());
+                binding.tvFullName.setText(user.getFullName() != null && !user.getFullName().isEmpty() ? user.getFullName() : "Chưa cập nhật tên");
                 binding.tvEmail.setText(user.getEmail());
                 
-                // If you had Glide, you would load the avatar here
-                // Glide.with(this).load(user.getAvatarUrl()).into(binding.ivAvatar);
+                binding.tvStudentId.setText(user.getStudentId() != null && !user.getStudentId().isEmpty() ? user.getStudentId() : "Chưa cập nhật MSSV");
+                binding.tvPhone.setText(user.getPhone() != null && !user.getPhone().isEmpty() ? user.getPhone() : "Chưa cập nhật SĐT");
+                binding.tvAddress.setText(user.getAddress() != null && !user.getAddress().isEmpty() ? user.getAddress() : "Chưa cập nhật địa chỉ");
+                
+                if (user.getAvatarUrl() != null && !user.getAvatarUrl().isEmpty()) {
+                    com.bumptech.glide.Glide.with(this).load(user.getAvatarUrl()).into(binding.ivAvatar);
+                }
             }
         });
     }
