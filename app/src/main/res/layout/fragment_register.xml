@@ -139,7 +139,7 @@
             android:layout_marginTop="@dimen/spacing_md"
             android:text="Đăng ký bằng Google"
             android:textColor="?attr/colorOnSurface"
-            app:icon="@drawable/ic_google"
+            app:icon="@android:drawable/ic_menu_myplaces"
             app:iconGravity="textStart"
             app:iconTint="@null"
             app:strokeColor="?attr/colorOutline"
