@@ -188,8 +188,12 @@ public class AddDeadlineFragment extends Fragment {
         }
 
         String status = currentDeadline.getStatus();
-        if (!TextUtils.isEmpty(status)) {
-            binding.spinnerStatus.setText(status, false);
+        if ("COMPLETED".equals(status)) {
+            binding.spinnerStatus.setText(statuses[1], false);
+        } else if ("OVERDUE".equals(status)) {
+            binding.spinnerStatus.setText(statuses[2], false);
+        } else {
+            binding.spinnerStatus.setText(statuses[0], false);
         }
 
         selectedSubjectId = currentDeadline.getSubjectId();
@@ -228,9 +232,12 @@ public class AddDeadlineFragment extends Fragment {
             }
         }
 
-        String status = binding.spinnerStatus.getText().toString();
-        if (TextUtils.isEmpty(status)) {
-            status = statuses[0];
+        String dbStatus = "PENDING";
+        String statusText = binding.spinnerStatus.getText().toString();
+        if (statuses[1].equals(statusText)) {
+            dbStatus = "COMPLETED";
+        } else if (statuses[2].equals(statusText)) {
+            dbStatus = "OVERDUE";
         }
 
         if (isEditMode && currentDeadline != null) {
@@ -238,7 +245,7 @@ public class AddDeadlineFragment extends Fragment {
             currentDeadline.setDescription(description);
             currentDeadline.setSubjectId(selectedSubjectId);
             currentDeadline.setPriority(priority);
-            currentDeadline.setStatus(status);
+            currentDeadline.setStatus(dbStatus);
             currentDeadline.setDueDate(dueCalendar.getTimeInMillis());
 
             viewModel.update(currentDeadline);
@@ -249,7 +256,7 @@ public class AddDeadlineFragment extends Fragment {
             newDeadline.setDescription(description);
             newDeadline.setSubjectId(selectedSubjectId);
             newDeadline.setPriority(priority);
-            newDeadline.setStatus(status);
+            newDeadline.setStatus(dbStatus);
             newDeadline.setDueDate(dueCalendar.getTimeInMillis());
 
             viewModel.insert(newDeadline);

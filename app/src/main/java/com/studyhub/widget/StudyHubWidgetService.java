@@ -70,8 +70,7 @@ class StudyHubRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
             int appDayOfWeek = currentDayOfWeek == Calendar.SUNDAY ? 8 : currentDayOfWeek;
             scheduleList = scheduleDao.getByDayOfWeekSync(appDayOfWeek);
         } else if ("deadline".equals(type)) {
-            long now = System.currentTimeMillis();
-            deadlineList = deadlineDao.getUpcomingSync(user.getUid(), now);
+            deadlineList = deadlineDao.getUncompletedSync(user.getUid());
         }
     }
 
