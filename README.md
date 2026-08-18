@@ -6,7 +6,7 @@ Dưới đây là chi tiết các phân hệ (modules) và chức năng chính c
 
 ---
 
-## 🚀 Các Tính Năng Nổi Bật (Mới Cập Nhật)
+##  Các Tính Năng Nổi Bật (Mới Cập Nhật)
 - **Onboarding Screen (Màn hình Chào mừng):** Trải nghiệm người dùng mượt mà ngay từ lần mở đầu tiên với các slide giới thiệu tính năng.
 - **Biểu Đồ Thống Kê Năng Suất (Analytics):** Trực quan hóa dữ liệu học tập thông qua biểu đồ tròn (Pie Chart) đánh giá tiến độ Task và biểu đồ cột (Bar Chart) phân tích Deadline bằng thư viện MPAndroidChart.
 - **Đồng Hồ Tập Trung (Pomodoro):** Tích hợp phương pháp học tập Pomodoro 25 phút không xao nhãng, có phản hồi rung (Vibration Feedback) khi kết thúc phiên học.
