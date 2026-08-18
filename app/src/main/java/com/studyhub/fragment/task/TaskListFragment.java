@@ -66,33 +66,13 @@ public class TaskListFragment extends Fragment {
         binding.rvTasks.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvTasks.setAdapter(adapter);
 
-        androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback swipeCallback = new androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback(0, androidx.recyclerview.widget.ItemTouchHelper.LEFT | androidx.recyclerview.widget.ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull androidx.recyclerview.widget.RecyclerView recyclerView, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getBindingAdapterPosition();
-                com.studyhub.database.entity.TaskEntity taskToDelete = adapter.getCurrentList().get(position);
-                
-                new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
-                        .setTitle("Xóa công việc")
-                        .setMessage("Bạn có chắc chắn muốn xóa công việc này?")
-                        .setPositiveButton("Xóa", (dialog, which) -> {
-                            taskViewModel.delete(taskToDelete);
-                            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa công việc", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
-                                    .setAction("Hoàn tác", v -> taskViewModel.insert(taskToDelete))
-                                    .show();
-                        })
-                        .setNegativeButton("Hủy", (dialog, which) -> {
-                            adapter.notifyItemChanged(position);
-                        })
-                        .setOnCancelListener(dialog -> adapter.notifyItemChanged(position))
-                        .show();
-            }
-        };
+        com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
+            com.studyhub.database.entity.TaskEntity taskToDelete = adapter.getCurrentList().get(position);
+            taskViewModel.delete(taskToDelete);
+            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa công việc", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+                    .setAction("Hoàn tác", v -> taskViewModel.insert(taskToDelete))
+                    .show();
+        });
 
         new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvTasks);
     }

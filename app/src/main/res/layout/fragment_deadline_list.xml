@@ -36,30 +36,14 @@
             
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <LinearLayout
+    <include
+        layout="@layout/layout_empty_state"
         android:id="@+id/llEmptyState"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical"
         android:visibility="gone"
-        tools:visibility="visible">
-
-        <ImageView
-            android:layout_width="@dimen/logo_login_size"
-            android:layout_height="@dimen/logo_login_size"
-            android:src="@android:drawable/ic_menu_agenda"
-            app:tint="?attr/colorOutlineVariant" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_md"
-            android:text="@string/empty_deadlines"
-            android:textAlignment="center"
-            android:textColor="?attr/colorOnSurfaceVariant" />
-    </LinearLayout>
+        tools:visibility="visible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddDeadline"

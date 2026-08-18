@@ -61,6 +61,15 @@ public class SubjectListFragment extends Fragment {
         );
         binding.rvSubjects.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvSubjects.setAdapter(adapter);
+
+        com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
+            com.studyhub.model.Subject subjectToDelete = adapter.getCurrentList().get(position);
+            subjectViewModel.delete(subjectToDelete);
+            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Môn học", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+                    .setAction("Hoàn tác", v -> subjectViewModel.insert(subjectToDelete))
+                    .show();
+        });
+        new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvSubjects);
     }
 
     private void setupClickListeners() {

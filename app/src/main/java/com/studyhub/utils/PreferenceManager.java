@@ -37,6 +37,14 @@ public class PreferenceManager {
         return preferences.getLong(key, defaultValue);
     }
 
+    public boolean isFirstTimeLaunch() {
+        return preferences.getBoolean("IS_FIRST_TIME_LAUNCH", true);
+    }
+
+    public void setFirstTimeLaunch(boolean isFirstTime) {
+        preferences.edit().putBoolean("IS_FIRST_TIME_LAUNCH", isFirstTime).apply();
+    }
+
     public void clear() {
         preferences.edit().clear().apply();
     }

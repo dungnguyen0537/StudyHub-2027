@@ -62,8 +62,17 @@ public class NoteListFragment extends Fragment {
         });
         
         // Notes are usually displayed in staggered grid like Google Keep
-        binding.rvNotes.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        binding.rvNotes.setLayoutManager(new androidx.recyclerview.widget.StaggeredGridLayoutManager(2, androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL));
         binding.rvNotes.setAdapter(adapter);
+
+        com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
+            com.studyhub.model.Note noteToDelete = adapter.getCurrentList().get(position);
+            noteViewModel.delete(noteToDelete);
+            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Ghi chú", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+                    .setAction("Hoàn tác", v -> noteViewModel.insert(noteToDelete))
+                    .show();
+        });
+        new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvNotes);
     }
 
     private void setupClickListeners() {

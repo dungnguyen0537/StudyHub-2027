@@ -124,6 +124,99 @@
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
+            <!-- New Cards Row: Analytics & Focus -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:baselineAligned="false">
+
+                <!-- Analytics Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAnalytics"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_xs"
+                    app:cardBackgroundColor="?attr/colorTertiaryContainer">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:src="@android:drawable/ic_menu_sort_by_size"
+                            app:tint="?attr/colorOnTertiaryContainer"
+                            android:contentDescription="Thống kê" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Thống kê"
+                            android:textColor="?attr/colorOnTertiaryContainer"
+                            android:textSize="@dimen/text_title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Năng suất"
+                            android:textColor="?attr/colorOnTertiaryContainer"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Focus Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardFocus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/elevation_xs"
+                    app:cardBackgroundColor="?attr/colorErrorContainer">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_md"
+                            android:layout_height="@dimen/icon_md"
+                            android:src="@android:drawable/ic_menu_recent_history"
+                            app:tint="?attr/colorOnErrorContainer"
+                            android:contentDescription="Tập trung" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Pomodoro"
+                            android:textColor="?attr/colorOnErrorContainer"
+                            android:textSize="@dimen/text_title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chế độ tập trung"
+                            android:textColor="?attr/colorOnErrorContainer"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
             <!-- Today's Schedule Section -->
             <LinearLayout
                 android:layout_width="match_parent"

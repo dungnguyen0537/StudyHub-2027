@@ -49,31 +49,14 @@ public class DashboardFragment extends Fragment {
         binding.rvTodaySchedule.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvTodaySchedule.setAdapter(scheduleAdapter);
 
-        androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback swipeCallback = new androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback(0, androidx.recyclerview.widget.ItemTouchHelper.LEFT | androidx.recyclerview.widget.ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull androidx.recyclerview.widget.RecyclerView recyclerView, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, @NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getBindingAdapterPosition();
-                com.studyhub.database.entity.ScheduleEntity scheduleToDelete = scheduleAdapter.getCurrentList().get(position);
-                
-                new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
-                        .setTitle("Xóa lịch học")
-                        .setMessage("Bạn có chắc chắn muốn xóa lịch học này?")
-                        .setPositiveButton("Xóa", (dialog, which) -> {
-                            dashboardViewModel.deleteSchedule(scheduleToDelete);
-                        })
-                        .setNegativeButton("Hủy", (dialog, which) -> {
-                            scheduleAdapter.notifyItemChanged(position);
-                        })
-                        .setOnCancelListener(dialog -> scheduleAdapter.notifyItemChanged(position))
-                        .show();
-            }
-        };
-
+        com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
+            com.studyhub.database.entity.ScheduleEntity scheduleToDelete = scheduleAdapter.getCurrentList().get(position);
+            dashboardViewModel.deleteSchedule(scheduleToDelete);
+            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa lịch học", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+                    // We don't have insert in DashboardViewModel right now, so we skip Undo or add it.
+                    // .setAction("Hoàn tác", v -> dashboardViewModel.insertSchedule(scheduleToDelete))
+                    .show();
+        });
         new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvTodaySchedule);
     }
 
@@ -95,6 +78,14 @@ public class DashboardFragment extends Fragment {
                 }
             }
         });
+
+        binding.cardAnalytics.setOnClickListener(v -> 
+            navController.navigate(R.id.analyticsFragment)
+        );
+
+        binding.cardFocus.setOnClickListener(v -> 
+            navController.navigate(R.id.focusFragment)
+        );
     }
 
     private void observeViewModel() {

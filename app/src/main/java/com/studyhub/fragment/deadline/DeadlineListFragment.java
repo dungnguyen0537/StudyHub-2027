@@ -65,6 +65,15 @@ public class DeadlineListFragment extends Fragment {
         );
         binding.rvDeadlines.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvDeadlines.setAdapter(adapter);
+
+        com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
+            com.studyhub.model.Deadline deadline = adapter.getCurrentList().get(position);
+            deadlineViewModel.delete(deadline);
+            com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Deadline", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+                    .setAction("Hoàn tác", v -> deadlineViewModel.insert(deadline))
+                    .show();
+        });
+        new androidx.recyclerview.widget.ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvDeadlines);
     }
 
     private void setupClickListeners() {
