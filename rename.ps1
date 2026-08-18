@@ -1,0 +1,1 @@
+foreach ($dir in Get-ChildItem -Path 'app\src\main\res' -Filter 'mipmap-*dpi' -Directory) { Rename-Item -Path ($dir.FullName + '\ic_launcher.png') -NewName 'owl_logo.png' -Force -ErrorAction SilentlyContinue; Rename-Item -Path ($dir.FullName + '\ic_launcher_round.png') -NewName 'owl_logo_round.png' -Force -ErrorAction SilentlyContinue; }
