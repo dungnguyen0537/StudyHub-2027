@@ -265,4 +265,10 @@ public class AddDeadlineFragment extends Fragment {
 
         navController.navigateUp();
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }

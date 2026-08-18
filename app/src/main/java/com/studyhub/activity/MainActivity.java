@@ -55,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 androidx.core.app.ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
             }
         }
+        
+        requestExactAlarmPermission();
+    }
+
+    private void requestExactAlarmPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+            android.app.AlarmManager alarmManager = (android.app.AlarmManager) getSystemService(android.content.Context.ALARM_SERVICE);
+            if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
+                // Show a dialog or toast explaining why the permission is needed
+                android.widget.Toast.makeText(this, "Vui lòng cấp quyền báo thức để thông báo Deadline chính xác", android.widget.Toast.LENGTH_LONG).show();
+                android.content.Intent intent = new android.content.Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivity(intent);
+            }
+        }
     }
     
     private void handleIntentRouting() {
