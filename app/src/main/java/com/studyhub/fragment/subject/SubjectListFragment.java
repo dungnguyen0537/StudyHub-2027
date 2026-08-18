@@ -63,7 +63,7 @@ public class SubjectListFragment extends Fragment {
         binding.rvSubjects.setAdapter(adapter);
 
         com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
-            com.studyhub.model.Subject subjectToDelete = adapter.getCurrentList().get(position);
+            com.studyhub.database.entity.SubjectEntity subjectToDelete = adapter.getCurrentList().get(position);
             subjectViewModel.delete(subjectToDelete);
             com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Môn học", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
                     .setAction("Hoàn tác", v -> subjectViewModel.insert(subjectToDelete))
@@ -88,11 +88,11 @@ public class SubjectListFragment extends Fragment {
             adapter.submitList(subjects);
             
             if (subjects == null || subjects.isEmpty()) {
-                binding.rvSubjects.setVisibility(View.GONE);
-                binding.llEmptyState.setVisibility(View.VISIBLE);
+                binding.rvSubjects.setVisibility(android.view.View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(android.view.View.VISIBLE);
             } else {
                 binding.rvSubjects.setVisibility(android.view.View.VISIBLE);
-                binding.llEmptyState.setVisibility(android.view.View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(android.view.View.GONE);
             }
         });
     }

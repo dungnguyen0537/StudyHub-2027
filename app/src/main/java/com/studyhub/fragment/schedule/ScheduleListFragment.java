@@ -135,10 +135,10 @@ public class ScheduleListFragment extends Fragment {
             
             if (schedules == null || schedules.isEmpty()) {
                 binding.rvSchedules.setVisibility(android.view.View.GONE);
-                binding.llEmptyState.setVisibility(android.view.View.VISIBLE);
+                binding.llEmptyState.getRoot().setVisibility(android.view.View.VISIBLE);
             } else {
                 binding.rvSchedules.setVisibility(android.view.View.VISIBLE);
-                binding.llEmptyState.setVisibility(android.view.View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(android.view.View.GONE);
             }
         });
 

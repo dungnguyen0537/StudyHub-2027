@@ -67,7 +67,7 @@ public class DeadlineListFragment extends Fragment {
         binding.rvDeadlines.setAdapter(adapter);
 
         com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
-            com.studyhub.model.Deadline deadline = adapter.getCurrentList().get(position);
+            com.studyhub.database.entity.DeadlineEntity deadline = adapter.getCurrentList().get(position);
             deadlineViewModel.delete(deadline);
             com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Deadline", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
                     .setAction("Hoàn tác", v -> deadlineViewModel.insert(deadline))
@@ -102,10 +102,10 @@ public class DeadlineListFragment extends Fragment {
             
             if (deadlines == null || deadlines.isEmpty()) {
                 binding.rvDeadlines.setVisibility(View.GONE);
-                binding.llEmptyState.setVisibility(View.VISIBLE);
+                binding.llEmptyState.getRoot().setVisibility(View.VISIBLE);
             } else {
                 binding.rvDeadlines.setVisibility(View.VISIBLE);
-                binding.llEmptyState.setVisibility(View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(View.GONE);
             }
         });
     }

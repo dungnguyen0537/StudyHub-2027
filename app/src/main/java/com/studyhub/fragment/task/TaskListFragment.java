@@ -98,10 +98,10 @@ public class TaskListFragment extends Fragment {
             
             if (tasks == null || tasks.isEmpty()) {
                 binding.rvTasks.setVisibility(View.GONE);
-                binding.llEmptyState.setVisibility(View.VISIBLE);
+                binding.llEmptyState.getRoot().setVisibility(View.VISIBLE);
             } else {
                 binding.rvTasks.setVisibility(View.VISIBLE);
-                binding.llEmptyState.setVisibility(View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(View.GONE);
             }
         });
     }

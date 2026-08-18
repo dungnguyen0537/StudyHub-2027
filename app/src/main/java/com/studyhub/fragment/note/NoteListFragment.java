@@ -66,7 +66,7 @@ public class NoteListFragment extends Fragment {
         binding.rvNotes.setAdapter(adapter);
 
         com.studyhub.utils.SwipeToDeleteCallback swipeCallback = new com.studyhub.utils.SwipeToDeleteCallback(requireContext(), position -> {
-            com.studyhub.model.Note noteToDelete = adapter.getCurrentList().get(position);
+            com.studyhub.database.entity.NoteEntity noteToDelete = adapter.getCurrentList().get(position);
             noteViewModel.delete(noteToDelete);
             com.google.android.material.snackbar.Snackbar.make(binding.getRoot(), "Đã xóa Ghi chú", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
                     .setAction("Hoàn tác", v -> noteViewModel.insert(noteToDelete))
@@ -95,10 +95,10 @@ public class NoteListFragment extends Fragment {
             
             if (notes == null || notes.isEmpty()) {
                 binding.rvNotes.setVisibility(View.GONE);
-                binding.llEmptyState.setVisibility(View.VISIBLE);
+                binding.llEmptyState.getRoot().setVisibility(View.VISIBLE);
             } else {
                 binding.rvNotes.setVisibility(View.VISIBLE);
-                binding.llEmptyState.setVisibility(View.GONE);
+                binding.llEmptyState.getRoot().setVisibility(View.GONE);
             }
         });
     }
