@@ -10,17 +10,28 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_lg">
 
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/logo_login_size"
+            android:layout_height="@dimen/logo_login_size"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:src="@mipmap/owl_logo_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/cd_app_logo" />
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_lg"
             android:fontFamily="sans-serif-black"
             android:text="@string/register"
             android:textSize="@dimen/text_title"
             android:textColor="?attr/colorOnSurface"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
             
         <TextView
             android:id="@+id/tvSubtitle"

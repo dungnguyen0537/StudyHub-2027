@@ -15,7 +15,7 @@
             android:layout_width="@dimen/logo_login_size"
             android:layout_height="@dimen/logo_login_size"
             android:layout_marginTop="@dimen/spacing_xl"
-            android:src="@drawable/ic_launcher"
+            android:src="@mipmap/owl_logo_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
